@@ -1,0 +1,16 @@
+Ejercicio2: Implementar  los  métodos  de  la  clase SongResource.java
+para  que  se  comporte de  acuerdo  a  la  documentación  proporcionada.  
+Probar  todas  las  operaciones haciendo uso de alguna extensión de navegador:
+
+Recurso Song
+GET		/songs				Devuelve todas las canciones de la aplicación.
+GET		/songs/{songId}		Devuelve la canción con id=songId. Si la canción no existe devuelve un “404 Not Found”.
+POST	/songs				Añade una nueva cancióncuyos datos se pasan en el cuerpo de  la  petición  en  formato  JSON  (no  se  debe  pasar  id,  se genera automáticamente). Si   el   nombre   de   la   canción   no   es   válido   (null   o   vacío) devuelveun error “400 Bad Request”.Si se añade satisfactoriamente, devuelve “201 Created” con la referencia a la URI y el contenido de la canción.
+PUT		/songs				Actualiza  la  canción  cuyos  datos se  pasan  en  el cuerpo  de  la petición en formato JSON (deben incluir el id de la canción).Si la canción no existe, devuelveun “404 Not Found”.Si se realiza correctamente, devuelve“204 No Content”.
+DELETE	/songs/{songId}		Elimina la canción con id=songId.Si la canción no existe, devuelveun “404 Not Found”.Si se realiza correctamente, devuelve“204 No Content
+
+Ejercicio 3: Consumo de la API a través de una aplicación Web
+El  objetivo  de  este  ejercicio  es  hacer  uso  de  la
+aplicación  desarrollada  en  la práctica  anterior  para  consumir  la  API.  
+Para  ello  deberán  reemplazarse  las URI empleadas   en  la   práctica 6 
+por   las   usadas  en  el   proyecto  que   se   acaba   de desarrollar
