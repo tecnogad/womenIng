@@ -1,27 +1,70 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Mujeres Ingenieras API</title>
 
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Hello App Engine</title>
-  </head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="shortcut icon" href="images/favicon.png">
+</head>
+<body>
+  <nav class="grey" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">tecno<span class='amber-text'>gad!</span></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+      </ul>
 
-  <body>
-    <h1>Hello App Engine!</h1>
-	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Available Servlets:</td>        
-      </tr>
-      <tr>
-        <td><a href="api/lists">PlayList_API</a></td>
-      </tr>
-    </table>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Home</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+    <img class="responsive-img" src="images/Mujeres-Ingenieras.jpg">
+      
+      <h1 class="header center "> <span  class='grey-text text-darken-3'>Mujeres ingenieras</span><span  class='orange-text'> API</span></h1>
+      <div class="row center">
+        <h5 class="header col s12 light">API en la que puedes consultar añadir y editar eminentes mujeres informáticas</h5>
+      </div>
+      <div class="row center">
+        <a href="api/v1/cards" id="download-button" class="btn-large waves-effect waves-light orange">Cards_API</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+
+   <footer class="page-footer orange">
+    <div class="container">
+
+        <div class="col l6 s12">
+       
+      
+
+
+        </div>
+</div>
+
+    <div class="footer-copyright">
+      <div class="container">
+       <a class="orange-text text-lighten-3" href="/">Tecnogad!</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
   </body>
 </html>
