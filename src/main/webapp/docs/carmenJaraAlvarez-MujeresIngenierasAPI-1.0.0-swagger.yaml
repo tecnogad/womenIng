@@ -1,0 +1,185 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: MujeresIngenierasAPI
+  description: Eminentes mujeres informáticas
+  contact:
+    email: tecnogad.aiss.g4@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+# Added by API Auto Mocking Plugin
+# host: mujeresingenierasapi.appspot.com
+
+paths:
+  /cards/{id}:
+    get:
+      tags:
+        - cards
+      summary: Get a woman card by id
+      operationId: get
+      parameters:
+      - name: id
+        in: path
+        description: ID of card to return
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Card'
+        404:
+          description: The Card wit id={id} was not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Card'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    delete:
+      tags:
+        - cards
+      summary: Delete a card by id
+      operationId: removeCard
+      parameters:
+      - name: id
+        in: path
+        description: ID of song to delete
+        required: true
+        type: string
+      responses:
+        204:
+          description: no content
+        404:
+          description: The Card with id={id} was not found
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+  /cards:
+    get:
+      tags:
+        - cards
+      summary: searches informatic women
+      operationId: getAll
+      description: |
+        By passing the name, you can search for
+        informatic women in the system. is there is not name it returns all.
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: name
+        description: pass an optional search string for looking for women engineer
+        required: false
+        type: string
+      
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Card'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    put:
+      tags:
+        - cards
+      summary: update a Card
+      operationId: updateCard
+      parameters:
+      - in: body
+        name: body
+        description: Card object
+        required: true
+        schema:
+          $ref: '#/definitions/Card'
+      responses:
+        204:
+          description: NO CONTENT
+        418:
+          description: I AM A TEAPOT
+        404:
+          description:  The Card with id={id} was not found
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    post:
+      tags:
+        - cards
+      summary: Post a card
+      operationId: addCard
+      parameters:
+      - in: body
+        name: body
+        description: Card object
+        required: true
+        schema:
+          $ref: '#/definitions/Card'
+      responses:
+        201:
+          description: created
+        400:
+          description: The name of the Card must not be null
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/error'
+    
+ 
+          
+definitions:
+  Card:
+    type: object
+    required:
+    - name
+    properties:
+      id:
+        type: string
+        example: c1
+      name:
+        type: string
+        example: Adele goldberg
+      introduction:
+        type: string
+        example: Empresaria e informática que participó en el desarrollo del lenguaje de programación Smalltalk-80, el cual se utilizó como prototipo de la interfaz WIMP (ventanas, iconos, menús y apuntadores), los inicios para las interfaces gráficas modernas.
+      image:
+        type: string
+        example: https://i.imgur.com/AzftjHt
+      qr:
+        type: string
+        example: https://i.imgur.com/Frb7mtP
+
+  error:
+    type: object
+    properties:
+      status:
+        description: The HTTP status code.
+        type: integer
+        format: int32
+        example: '404'
+      message:
+        description: A short description of the cause of the error
+        example: Not found
+        type: string
+# Added by API Auto Mocking Plugin
+# basePath: /api/v1
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# host: mujeresingenierasapi.appspot.com
+# basePath: /api/v1
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /carmenJaraAlvarez/MujeresIngenierasAPI/1.0.0
