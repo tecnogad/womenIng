@@ -1,6 +1,8 @@
 package aiss.model;
 
-public class Card {
+import java.util.Comparator;
+
+public class Card implements Comparable<Card>{
 
 	private String id;
 	private String name;
@@ -50,5 +52,12 @@ public class Card {
 	public void setQr(String qr) {
 		this.qr = qr;
 	}
+
+	@Override
+	public int compareTo(Card o) {
+		
+		return name.compareTo(o.name);
+	}
+
 
 }

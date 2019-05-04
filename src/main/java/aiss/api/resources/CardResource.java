@@ -1,7 +1,12 @@
 package aiss.api.resources;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -10,6 +15,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
@@ -26,7 +32,7 @@ import aiss.model.repository.MapCardRepository;
 import aiss.model.repository.CardRepository;
 
 
-@Path("/cards")
+@Path("v1/cards")
 public class CardResource {
 	
 	/* Singleton */
@@ -48,9 +54,22 @@ public class CardResource {
 
 	@GET
 	@Produces("application/json")
-	public Collection<Card> getAll()
+	public List<Card> getAll(@QueryParam("name") String name)
 	{
-		return repository.getAllCards();
+		List<Card> all=new ArrayList<>(repository.getAllCards());	
+		Collections.sort(all);
+		List<Card> byName=new ArrayList<>();
+		if(name!=null && name!="") {
+			for(Card c: all) {
+				if(c.getName().contains(name)) {
+					byName.add(c);
+				}
+			}
+			return byName;
+		}
+		else {
+			return all;
+		}
 	}
 	
 	
@@ -98,8 +117,7 @@ public class CardResource {
 		}
 		// Update name
 		if (card.getName() == null || card.getName().equals("")) {
-			throw new NotFoundException("Name is required");
-			//TODO 418
+			return Response.status(418).build();
 		}
 		else {
 			oldCard.setName(card.getName());
