@@ -181,5 +181,5 @@ schemes:
 # host: mujeresingenierasapi.appspot.com
 # basePath: /api/v1
 # Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
-basePath: /carmenJaraAlvarez/MujeresIngenierasAPI/1.0.0
+host: mujeresingenierasapi.appspot.com
+basePath: /api/v1
